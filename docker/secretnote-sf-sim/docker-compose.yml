@@ -7,6 +7,8 @@ services:
       - SELF_PARTY=alice
     ports:
       - 8090:8888
+    user: root
+    command: sh -c "chown -R secretnote:secretnote /home/secretnote/workspace"
     volumes:
       - ./alice:/home/secretnote/workspace
 
@@ -18,5 +20,7 @@ services:
       - SELF_PARTY=bob
     ports:
       - 8092:8888
+    user: root
+    command: sh -c "chown -R secretnote:secretnote /home/secretnote/workspace"
     volumes:
       - ./bob:/home/secretnote/workspace
